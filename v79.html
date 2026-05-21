@@ -128,6 +128,15 @@ function loadState() {
 function completedCount() {
   return rows.filter(r => r.human_label && r.human_confidence && String(r.human_note||'').trim().length >= 3).length;
 }
+function prefillParticipantFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('PROLIFIC_PID') || params.get('participant') || params.get('participant_id');
+  const el = document.getElementById('pid');
+  if (pid && el && !el.value.trim()) {
+    el.value = pid;
+    saveState();
+  }
+}
 function updateProgress() {
   const done = completedCount();
   const pidOk = Boolean(document.getElementById('pid')?.value.trim());
@@ -154,6 +163,7 @@ async function copyOutput() {
   alert('Copied compact output. Paste it into the Google Form.');
 }
 render();
+prefillParticipantFromUrl();
 </script>
 </body>
 </html>
