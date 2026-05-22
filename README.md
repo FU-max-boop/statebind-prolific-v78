@@ -15,7 +15,7 @@ Labels: `UNIQUE`, `ALT`, `UNCLEAR`.
 
 ## v79 Completion Code
 
-The bundled v79 page uses completion code `C79BIND2`. If a new Prolific study uses a different completion code, regenerate `v79.html` from the research repo with:
+The bundled v79 page uses completion code `CY913VY7`. If a new Prolific study uses a different completion code, regenerate `v79.html` from the research repo with:
 
 ```bash
 python3 scripts/create_prolific_v79_compact_ui.py --completion-code YOUR_CODE
